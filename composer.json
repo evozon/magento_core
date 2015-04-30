@@ -1,6 +1,6 @@
 {
   "name":"evozon/magento_core",
-  "description":"Magento Core fixes",
+  "description":"Fix common problems in Magento core",
   "keywords":[
     "magento",
     "core",
