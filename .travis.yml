@@ -1,13 +1,24 @@
 language: php
 
+# faster builds on new travis setup not using sudo
+sudo: false
+
+# cache vendor dirs
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - nightly
+  - hhvm
+  - hhvm-nightly
+
 matrix:
-    include:
-        - php: 5.3
-        - php: 5.4
-        - php: 5.5
-        - php: 5.6
-        - php: nightly
-        - php: hhvm-nightly
     allow_failures:
         - php: nightly
         - php: hhvm-nightly
