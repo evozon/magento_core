@@ -32,3 +32,6 @@ script:
   - vendor/bin/phpmd app/code/community/Evozon/Core text codesize,unusedcode,naming --suffixes=.php
   - vendor/bin/phpcs --standard=Zend --extensions=php app/code/community/Evozon/Core
   - vendor/bin/phpcpd app/code/community/Evozon/Core
+
+notifications:
+  email: false
