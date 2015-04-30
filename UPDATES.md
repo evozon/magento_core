@@ -13,3 +13,21 @@ X-Forwarded-For: originalclient, proxy1, proxy2
 ```
 
 This fix will overwrite Magento's core helper method and return the first if multiple addresses are found.
+
+
+#### Indexer event ```delete``` on ```catalog_category``` entity
+
+Magento does not index the ```delete``` event type on ```catalog_category``` entity, therefore it can not be used in indexers.
+
+```
+protected $_matchedEntities = array(
+    Mage_Catalog_Model_Category::ENTITY => array(
+        Mage_Index_Model_Event::TYPE_DELETE
+    )
+);
+```
+
+
+#### Dispatch missing ```before_reindex_process_{indexer_code}``` event before executing ```Mage_Index_Model_Process::reindexAll()```
+
+There is an event ```after_reindex_process_{indexer_code}``` at the end of the ```Mage_Index_Model_Process::reindexAll()``` method. However the one at the beginning is missing.
