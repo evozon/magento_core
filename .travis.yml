@@ -1,0 +1,22 @@
+language: php
+
+matrix:
+    include:
+        - php: 5.3
+        - php: 5.4
+        - php: 5.5
+        - php: 5.6
+        - php: nightly
+        - php: hhvm-nightly
+    allow_failures:
+        - php: nightly
+        - php: hhvm-nightly
+    fast_finish: true
+
+install:
+  - composer update --no-plugins --prefer-source --no-interaction
+
+script:
+  - vendor/bin/phpmd app/code/community/Evozon/Core text codesize,unusedcode,naming --suffixes=.php
+  - vendor/bin/phpcs --standard=Zend --extensions=php app/code/community/Evozon/Core
+  - endor/bin/phpcpd app/code/community/Evozon/Core
