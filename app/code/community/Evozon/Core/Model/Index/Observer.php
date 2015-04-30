@@ -17,7 +17,7 @@ class Evozon_Core_Model_Index_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function logCatalogCategoryEventDelete(Varien_Event_Observer $observer)
+    public function logCategoryEventDelete(Varien_Event_Observer $observer)
     {
         Mage::getSingleton('index/indexer')->logEvent(
             $observer->getEvent()->getDataObject(),
@@ -30,13 +30,12 @@ class Evozon_Core_Model_Index_Observer
      * Index delete event on catalog category entity
      *
      * @event catalog_category_delete_commit_after
-     *
-     * @param Varien_Event_Observer $observer
      */
-    public function indexCatalogCategoryEventDelete(Varien_Event_Observer $observer)
+    public function indexCategoryEventDelete()
     {
         Mage::getSingleton('index/indexer')->indexEvents(
-            Mage_Catalog_Model_Category::ENTITY, Mage_Index_Model_Event::TYPE_DELETE
+            Mage_Catalog_Model_Category::ENTITY,
+            Mage_Index_Model_Event::TYPE_DELETE
         );
     }
 }

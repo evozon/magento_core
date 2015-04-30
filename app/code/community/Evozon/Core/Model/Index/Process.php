@@ -23,7 +23,8 @@ class Evozon_Core_Model_Index_Process extends Mage_Index_Model_Process
         if ($this->isLocked()) {
             Mage::throwException(
                 Mage::helper('index')->__(
-                    '%s Index process is working now. Please try run this process later.',
+                    '%s Index process is working now. '.
+                    'Please try run this process later.',
                     $this->getIndexer()->getName()
                 )
             );

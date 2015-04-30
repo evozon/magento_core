@@ -40,18 +40,18 @@
             <!-- Index event type "delete" on "catalog_category" entity -->
             <catalog_category_delete_before>
                 <observers>
-                    <evozon_core_index_logCatalogCategoryEventDelete>
+                    <evozon_core_index_logCategoryEventDelete>
                         <class>evozon_core/index_observer</class>
-                        <method>logCatalogCategoryEventDelete</method>
-                    </evozon_core_index_logCatalogCategoryEventDelete>
+                        <method>logCategoryEventDelete</method>
+                    </evozon_core_index_logCategoryEventDelete>
                 </observers>
             </catalog_category_delete_before>
             <catalog_category_delete_commit_after>
                 <observers>
-                    <evozon_core_index_indexCatalogCategoryEventDelete>
+                    <evozon_core_index_indexCategoryEventDelete>
                         <class>evozon_core/index_observer</class>
-                        <method>indexCatalogCategoryEventDelete</method>
-                    </evozon_core_index_indexCatalogCategoryEventDelete>
+                        <method>indexCategoryEventDelete</method>
+                    </evozon_core_index_indexCategoryEventDelete>
                 </observers>
             </catalog_category_delete_commit_after>
             <!-- /Index event type "delete" on "catalog_category" entity -->
