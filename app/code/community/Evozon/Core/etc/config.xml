@@ -11,7 +11,7 @@
 <config>
     <modules>
         <Evozon_Core>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </Evozon_Core>
     </modules>
     <global>
@@ -30,5 +30,26 @@
                 </rewrite>
             </core>
         </helpers>
+
+        <events>
+            <!-- Index event "delete" on "catalog_category" entity -->
+            <catalog_category_delete_before>
+                <observers>
+                    <evozon_core_index_logCatalogCategoryEventDelete>
+                        <class>evozon_core/index_observer</class>
+                        <method>logCatalogCategoryEventDelete</method>
+                    </evozon_core_index_logCatalogCategoryEventDelete>
+                </observers>
+            </catalog_category_delete_before>
+            <catalog_category_delete_commit_after>
+                <observers>
+                    <evozon_core_index_indexCatalogCategoryEventDelete>
+                        <class>evozon_core/index_observer</class>
+                        <method>indexCatalogCategoryEventDelete</method>
+                    </evozon_core_index_indexCatalogCategoryEventDelete>
+                </observers>
+            </catalog_category_delete_commit_after>
+            <!-- /Index event "delete" on "catalog_category" entity -->
+        </events>
     </global>
 </config>
