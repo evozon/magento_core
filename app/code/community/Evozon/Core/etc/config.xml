@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Evozon Core module configuration
+*
+* @package     Evozon_Core_etc
+* @copyright   Copyright (c) Evozon Systems (http://www.evozon.com/)
+* @author      Constantin Bejenaru <constantin.bejenaru@evozon.com>
+*/
+-->
+<config>
+    <modules>
+        <Evozon_Core>
+            <version>0.1.0</version>
+        </Evozon_Core>
+    </modules>
+    <global>
+        <models>
+            <evozon_core>
+                <class>Evozon_Core_Model</class>
+            </evozon_core>
+        </models>
+        <helpers>
+            <evozon_core>
+                <class>Evozon_Core_Helper</class>
+            </evozon_core>
+            <core>
+                <rewrite>
+                    <http>Evozon_Core_Helper_Core_Http</http>
+                </rewrite>
+            </core>
+        </helpers>
+    </global>
+</config>

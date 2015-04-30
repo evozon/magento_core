@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Evozon Core module configuration
+ *
+ * @package     Evozon_Core
+ * @copyright   Copyright (c) Evozon Systems (http://www.evozon.com/)
+ * @author      Constantin Bejenaru <constantin.bejenaru@evozon.com>
+ */
+-->
+<config>
+    <modules>
+        <Evozon_Core>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <!-- Magento CE -->
+                <Mage_Core/>
+                <Mage_Index/>
+            </depends>
+        </Evozon_Core>
+    </modules>
+</config>
