@@ -14,9 +14,10 @@ matrix:
     fast_finish: true
 
 install:
+  - composer require --dev --no-update --no-progress phpmd/phpmd:@stable squizlabs/php_codesniffer:@stable sebastian/phpcpd:@stable
   - composer update --no-plugins --prefer-source --no-interaction
 
 script:
   - vendor/bin/phpmd app/code/community/Evozon/Core text codesize,unusedcode,naming --suffixes=.php
   - vendor/bin/phpcs --standard=Zend --extensions=php app/code/community/Evozon/Core
-  - endor/bin/phpcpd app/code/community/Evozon/Core
+  - vendor/bin/phpcpd app/code/community/Evozon/Core
