@@ -27,18 +27,20 @@ class Evozon_Core_Helper_Core_Http extends Mage_Core_Helper_Http
      */
     public function getRemoteAddr($ipToLong = false)
     {
+        /** @var Zend_Controller_Request_Http $request */
+        $request = $this->_getRequest();
+
         if (is_null($this->_remoteAddr)) {
             $headers = $this->getRemoteAddrHeaders();
             foreach ($headers as $var) {
-                if ($this->_getRequest()->getServer($var, false)) {
+                if ($request->getServer($var, false)) {
                     $this->_remoteAddr = $_SERVER[$var];
                     break;
                 }
             }
 
             if (!$this->_remoteAddr) {
-                $this->_remoteAddr = $this->_getRequest()
-                    ->getServer('REMOTE_ADDR');
+                $this->_remoteAddr = $request->getServer('REMOTE_ADDR');
             }
 
             $ips = array_filter(
